@@ -1,4 +1,5 @@
-import './UserDetail.js';
+import './UserDetails.js';
+import './DebtDetails.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -38,6 +39,16 @@ class Card extends HTMLElement {
             cardDetail.setAttribute('phone', this._data.phone);
             cardDetail.setAttribute('address', this._data.address);
             cardDetail.setAttribute('category', this._data.category);
+
+            this.container.appendChild(cardDetail);
+        }
+        else if (this._type == 'debts') {
+            const cardDetail = document.createElement('mb-debt-details');
+            cardDetail.setAttribute('description', this._data.description);
+            cardDetail.setAttribute('balance', this._data.balance);
+            cardDetail.setAttribute('payment', this._data.payment);
+            cardDetail.setAttribute('category', this._data.category);
+            cardDetail.setAttribute('bank', this._data.bank);
 
             this.container.appendChild(cardDetail);
         }

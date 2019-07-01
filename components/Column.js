@@ -73,8 +73,8 @@ class Column extends HTMLElement {
         }
         else {
             this._filteredData = this._data.filter(data => {
-                let fullName = data.firstName + " " + data.lastName;
-                return fullName.toLowerCase().includes(term);
+                const searchKey = this._type === "users" ? data.firstName + " " + data.lastName : data.description;
+                return searchKey.toLowerCase().includes(term);
             });
         }
         this.renderContentArea();

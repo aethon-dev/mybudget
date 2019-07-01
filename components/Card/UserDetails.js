@@ -38,7 +38,7 @@ template.innerHTML = `
     </div>
 `;
 
-class UserDetail extends HTMLElement {
+class UserDetails extends HTMLElement {
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({ mode: 'open' });
@@ -99,4 +99,4 @@ class UserDetail extends HTMLElement {
     }
 }
 
-window.customElements.define('mb-user-detail', UserDetail);
+window.customElements.define('mb-user-detail', UserDetails);
