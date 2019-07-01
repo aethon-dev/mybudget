@@ -1,11 +1,9 @@
-const template = document.createElement('template');
+import './Header.js';
 
+const template = document.createElement('template');
 template.innerHTML = `
     <style>
     :host {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
         width: 100%;
     }
 
@@ -42,8 +40,22 @@ class Column extends HTMLElement {
     }
 
     render() {
-        this.columnHeader.innerHTML = 'columnHeader';
+        const header = document.createElement('col-header');
+        header.setAttribute('title', this._title);
+        this.columnHeader.appendChild(header);
         this.columnContent.innerHTML = 'columnContent';
+    }
+
+    static get observedAttributes() {
+        return ['title'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        switch (name) {
+            case 'title':
+                this._title = newValue;
+                break;
+        }
     }
 }
 

@@ -30,7 +30,9 @@ class MyBudgetApp extends HTMLElement {
 
     render() {
         const col1 = document.createElement('app-column');
+        col1.setAttribute('title', 'Users In Debt');
         const col2 = document.createElement('app-column');
+        col2.setAttribute('title', 'Debts');
 
         this.container.appendChild(col1);
         this.container.appendChild(col2);
