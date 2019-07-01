@@ -31,6 +31,9 @@ class Header extends HTMLElement {
         super();
         this._shadowRoot = this.attachShadow({ mode: 'open' });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.titleEl = this._shadowRoot.querySelector('.header-title');
+        this.searchBarEl = this._shadowRoot.querySelector('.search-bar');
     }
 
     connectedCallback() {
@@ -38,10 +41,7 @@ class Header extends HTMLElement {
     }
 
     render() {
-        const title = this._shadowRoot.querySelector('.header-title');
-        const searchBar = this._shadowRoot.querySelector('.search-bar');
-
-        title.innerHTML = this._title;
+        this.titleEl.innerHTML = this._title;
     }
 
     static get observedAttributes() {
