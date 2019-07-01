@@ -1,4 +1,4 @@
-{
+export default {
     "debts": [
         {
             "_id": "5cd3a9c8063e9488f00ee74b",

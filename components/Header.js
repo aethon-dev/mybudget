@@ -34,6 +34,11 @@ class Header extends HTMLElement {
 
         this.titleEl = this._shadowRoot.querySelector('.header-title');
         this.searchBarEl = this._shadowRoot.querySelector('.search-bar');
+
+        this.searchBarEl.addEventListener('keyup', (event) => {
+            this.dispatchEvent(new CustomEvent('onSearch', { detail: { searchTerm: this.searchBarEl.value }, composed: true, bubbles: true }));
+            console.log(this.searchBarEl.value);
+        });
     }
 
     connectedCallback() {

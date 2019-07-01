@@ -35,6 +35,10 @@ class Column extends HTMLElement {
 
         this.columnHeader = this._shadowRoot.querySelector('.col-header');
         this.columnContent = this._shadowRoot.querySelector('.col-content');
+
+        this.columnHeader.addEventListener('onSearch', (event) => {
+            this.filterData(event.detail.searchTerm);
+        });
     }
 
     connectedCallback() {
@@ -51,8 +55,8 @@ class Column extends HTMLElement {
 
     renderContentArea() {
         this.columnContent.innerHTML = '';
-        if (this._data && Array.isArray(this._data)) {
-            this._data.forEach((data, index) => {
+        if (this._filteredData && Array.isArray(this._filteredData)) {
+            this._filteredData.forEach((data, index) => {
                 const card = document.createElement('mb-card');
                 card.setAttribute('type', this._type);
                 card.data = data;
@@ -61,8 +65,24 @@ class Column extends HTMLElement {
         }
     }
 
+    filterData(searchTerm) {
+        console.log(searchTerm);
+        const term = searchTerm.toLowerCase();
+        if (term && term === "") {
+            this._filteredData = this._data;
+        }
+        else {
+            this._filteredData = this._data.filter(data => {
+                let fullName = data.firstName + " " + data.lastName;
+                return fullName.toLowerCase().includes(term);
+            });
+        }
+        this.renderContentArea();
+    }
+
     set data(data) {
         this._data = data;
+        this._filteredData = this._data;
         this.renderContentArea();
     }
 

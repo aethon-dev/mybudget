@@ -1,4 +1,4 @@
-{
+export default {
     "users": [
         {
             "_id": "5cd3a86edc4315a4f8dbeb2f",
