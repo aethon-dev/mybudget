@@ -8,6 +8,7 @@ template.innerHTML = `
         width: 100%;
         height: 100%;
         overflow: hidden;
+        background: #f5f5f5;
     }
 
     ::-webkit-scrollbar {
@@ -18,14 +19,13 @@ template.innerHTML = `
     .col-header {
         width: 100%;
         height: 20%;
-        border: 1px solid;
+        border-left: thin solid;
     }
 
     .col-content {
         width: 100%;
         height: 80%;
-        border: 1px solid;
-        padding-top: 50px;
+        border-left: thin solid;
         overflow-y: auto;
         scrollbar-width: none;
     }

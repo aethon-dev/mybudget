@@ -7,8 +7,8 @@ template.innerHTML = `
     .container {
         width: 80%;
         height: 200px;
-        box-sizing: border-box;
-        border: 1px solid;
+        border: solid thin;
+        border-radius: 4px;
         margin: 20px auto;
     }
     </style>
