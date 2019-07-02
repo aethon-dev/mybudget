@@ -1,6 +1,6 @@
-import './components/Column.js';
-import userData from './models/user.js';
-import debtData from './models/debts.js';
+import './src/components/Column.js';
+import userData from './src/models/user.js';
+import debtData from './src/models/debts.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
