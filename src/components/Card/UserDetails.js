@@ -5,6 +5,7 @@ template.innerHTML = `
             display: flex;
             flex-direction: row;
             justify-content: center;
+            line-height: 1.45em;
         }
 
         img {
@@ -21,8 +22,9 @@ template.innerHTML = `
 
         .details {
             width: 66%;
-            height: auto;
+            height: 100%;
             margin: 2%;
+            overflow: auto;
         }
     </style>
 

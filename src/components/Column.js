@@ -57,6 +57,7 @@ class Column extends HTMLElement {
     render() {
         const header = document.createElement('col-header');
         header.setAttribute('title', this._title);
+        header.setAttribute('type', this._type);
         this.columnHeader.appendChild(header);
 
         this.renderContentArea();

@@ -5,8 +5,8 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
     .container {
-        width: 80%;
-        height: 200px;
+        max-height: 200px;
+        max-width: 480px;
         border: solid thin;
         border-radius: 4px;
         margin: 20px auto;

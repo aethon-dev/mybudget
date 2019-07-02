@@ -5,6 +5,8 @@ template.innerHTML = `
             display: flex;
             flex-direction: row;
             justify-content: center;
+            line-height: 1.7em;
+
         }
 
         .escalate {
