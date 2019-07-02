@@ -13,6 +13,10 @@ template.innerHTML = `
             margin: 2%;
         }
 
+        .hidden {
+            visibility: hidden;
+        }
+
         .details {
             width: 66%;
             height: auto;
@@ -28,6 +32,7 @@ template.innerHTML = `
         <span>Bank: </span><span class="bank"></span></br>
     </div>
     <div class="escalate">
+        <button>Escalate</button>
         <ul>
         </ul>
     </div>
@@ -44,6 +49,8 @@ class DebtDetails extends HTMLElement {
         this.paymentEl = this._shadowRoot.querySelector('.payment');
         this.categoryEl = this._shadowRoot.querySelector('.category');
         this.bankEl = this._shadowRoot.querySelector('.bank');
+        this.escalateEl = this._shadowRoot.querySelector('.escalate');
+        this.escalateListEl = this._shadowRoot.querySelector('ul');
     }
 
     connectedCallback() {
@@ -56,6 +63,25 @@ class DebtDetails extends HTMLElement {
         this.paymentEl.innerHTML = this._payment;
         this.categoryEl.innerHTML = this._category;
         this.bankEl.innerHTML = this._bank;
+
+        if (this._escalateList && Array.isArray(this._escalateList)) {
+            this._escalateList.forEach(user => {
+                const liEl = document.createElement('li');
+                liEl.innerHTML = user;
+                this.escalateListEl.appendChild(liEl);
+            });
+        }
+        else {
+            this.escalateEl.classList.add('hidden');
+        }
+    }
+
+    get escalateList() {
+        return this._escalateList;
+    }
+
+    set escalateList(list) {
+        this._escalateList = list;
     }
 
     static get observedAttributes() {

@@ -6,6 +6,13 @@ template.innerHTML = `
     <style>
     :host {
         width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px; 
+        background: transparent;
     }
 
     .col-header {
@@ -19,6 +26,8 @@ template.innerHTML = `
         height: 80%;
         border: 1px solid;
         padding-top: 50px;
+        overflow-y: auto;
+        scrollbar-width: none;
     }
 
     </style>

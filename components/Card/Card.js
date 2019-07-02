@@ -50,6 +50,10 @@ class Card extends HTMLElement {
             cardDetail.setAttribute('category', this._data.category);
             cardDetail.setAttribute('bank', this._data.bank);
 
+            if (this._data.escalate && this.data.escalate.staff) {
+                cardDetail.escalateList = this.data.escalate.staff;
+            }
+
             this.container.appendChild(cardDetail);
         }
 
