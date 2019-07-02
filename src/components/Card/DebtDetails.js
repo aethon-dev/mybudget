@@ -12,7 +12,8 @@ template.innerHTML = `
         .escalate {
             width: 32%;
             height: auto;
-            margin: 2%;
+            margin: 2% 6% 2% 2%;
+            padding-top: 5%;
         }
 
         .hidden {
@@ -22,11 +23,38 @@ template.innerHTML = `
         .details {
             width: 66%;
             height: auto;
-            margin: 2%;
+            margin: 2% 2% 2% 6%;
         }
 
         .key {
             font-weight: bold;
+        }
+
+        .escalate button {
+            margin-bottom: 10%;
+            width: 100%;
+            background-color: #db483d;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+        }
+
+        .escalate button:hover {
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15),0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .escalate ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 5%;
+            text-align: left;
+            border: solid thin;
         }
     </style>
 
