@@ -6,10 +6,11 @@ template.innerHTML = `
     <style>
     .container {
         max-height: 200px;
-        max-width: 480px;
-        border: solid thin;
+        max-width: 520px;
+        border: solid thin #dbdbdb;
         border-radius: 4px;
         margin: 20px auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     }
     </style>
 

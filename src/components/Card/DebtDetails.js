@@ -24,14 +24,18 @@ template.innerHTML = `
             height: auto;
             margin: 2%;
         }
+
+        .key {
+            font-weight: bold;
+        }
     </style>
 
     <div class="details">
         <h2 class="description"></h2>
-        <span>Balance: </span><span class="balance"></span></br>
-        <span>Payment: </span><span class="payment"></span></br>
-        <span>Category: </span><span class="category"></span></br>
-        <span>Bank: </span><span class="bank"></span></br>
+        <span class="key">Balance: </span><span class="balance"></span></br>
+        <span class="key">Payment: </span><span class="payment"></span></br>
+        <span class="key">Category: </span><span class="category"></span></br>
+        <span class="key">Bank: </span><span class="bank"></span></br>
     </div>
     <div class="escalate">
         <button>Escalate</button>

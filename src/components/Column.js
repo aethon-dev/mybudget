@@ -18,13 +18,13 @@ template.innerHTML = `
 
     .col-header {
         width: 100%;
-        height: 20%;
+        height: 18%;
         border-left: thin solid;
     }
 
     .col-content {
         width: 100%;
-        height: 80%;
+        height: 82%;
         border-left: thin solid;
         overflow-y: auto;
         scrollbar-width: none;

@@ -12,6 +12,7 @@ template.innerHTML = `
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 4px;
         }
 
         .picture {
@@ -26,6 +27,10 @@ template.innerHTML = `
             margin: 2%;
             overflow: auto;
         }
+
+        .key {
+            font-weight: bold;
+        }
     </style>
 
     <div class="picture">
@@ -33,10 +38,10 @@ template.innerHTML = `
     </div>
     <div class="details">
         <h2 class="name"></h2>
-        <span>Age: </span><span class="age"></span></br>
-        <span>Phone: </span><span class="phone"></span></br>
-        <span>Address: </span><span class="address"></span></br>
-        <span>Category: </span><span class="category"></span></br>
+        <span class="key">Age: </span><span class="age"></span></br>
+        <span class="key">Phone: </span><span class="phone"></span></br>
+        <span class="key">Address: </span><span class="address"></span></br>
+        <span class="key">Category: </span><span class="category"></span></br>
     </div>
 `;
 

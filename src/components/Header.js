@@ -17,7 +17,7 @@ template.innerHTML = `
         padding: 12px 15px;
         margin: 8px 0;
         box-sizing: border-box;
-        box-shadow: 0 5px 7px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
     }
 
