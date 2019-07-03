@@ -33,7 +33,7 @@ const template = `
         }
 
         .value {
-            color: ${constants.colors.textNormal};
+            color: ${constants.colors.enhansed};
         }
 
         .escalate button {

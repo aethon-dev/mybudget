@@ -1,4 +1,5 @@
 import BaseComponent from './BaseComponent.js';
+import constants from '../constants.js';
 import './Column.js';
 import userData from '../models/user.js';
 import debtData from '../models/debts.js';
@@ -10,6 +11,9 @@ const template = `
         flex-direction: row;
         justify-content: center;
         height: 100vh;
+        font-weight: normal;
+        font-family: ${constants.font.family};
+        color: ${constants.colors.base};
     }
     </style>
 
