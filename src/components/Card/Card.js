@@ -1,4 +1,5 @@
 import BaseComponent from '../BaseComponent.js';
+import constants from '../../constants.js';
 import './CardUserDetails.js';
 import './CardDebtDetails.js';
 
@@ -11,6 +12,7 @@ const template = `
         border-radius: 4px;
         margin: 20px auto;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        background: ${constants.colors.white};
     }
     </style>
 

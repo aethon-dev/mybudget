@@ -35,7 +35,7 @@ const template = `
         }
 
         .value {
-            color: ${constants.colors.enhansed};
+            color: ${constants.colors.textEnhansed};
         }
     </style>
 

@@ -13,7 +13,7 @@ const template = `
         height: 100vh;
         font-weight: normal;
         font-family: ${constants.font.family};
-        color: ${constants.colors.base};
+        color: ${constants.colors.textBase};
     }
     </style>
 

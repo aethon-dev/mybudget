@@ -1,4 +1,5 @@
 import BaseComponent from './BaseComponent.js';
+import constants from '../constants.js';
 import './Header.js';
 import './Card/Card.js';
 
@@ -8,7 +9,7 @@ const template = `
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: #f5f5f5;
+        background: ${constants.colors.background};
     }
 
     ::-webkit-scrollbar {

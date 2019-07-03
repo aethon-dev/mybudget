@@ -1,8 +1,11 @@
 export default {
     colors: {
-        base: '#4c4e5e',
-        enhansed: '#1483d7',
-        risk: '#db483d'
+        textBase: '#4c4e5e',
+        textEnhansed: '#006494',
+        risk: '#DC493A',
+        background: '#F5F5F5',
+        white: '#ffffff'
+
     },
 
     font: {
