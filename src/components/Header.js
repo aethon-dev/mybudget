@@ -39,7 +39,7 @@ const template = `
 
     .search-icon img {
         position: relative;
-        top: 19px;
+        top: 20px;
         left: 15px;
     }
     </style>

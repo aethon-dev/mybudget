@@ -29,6 +29,11 @@ const template = `
 
         .key {
             font-weight: bold;
+            color: #2f364d;
+        }
+
+        .value {
+
         }
 
         .escalate button {
@@ -61,10 +66,10 @@ const template = `
 
     <div class="details">
         <h2 class="description"></h2>
-        <span class="key">Balance: </span><span class="balance"></span></br>
-        <span class="key">Payment: </span><span class="payment"></span></br>
-        <span class="key">Category: </span><span class="category"></span></br>
-        <span class="key">Bank: </span><span class="bank"></span></br>
+        <span class="key">Balance: </span><span class="value balance"></span></br>
+        <span class="key">Payment: </span><span class="value payment"></span></br>
+        <span class="key">Category: </span><span class="value category"></span></br>
+        <span class="key">Bank: </span><span class="value bank"></span></br>
     </div>
     <div class="escalate">
         <button>Escalate</button>

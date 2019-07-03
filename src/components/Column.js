@@ -24,16 +24,22 @@ const template = `
 
     .col-content {
         width: 100%;
-        height: 82%;
+        height: 80%;
         border-left: thin solid;
         overflow-y: auto;
         scrollbar-width: none;
+    }
+
+    .col-footer {
+        width: 100%;
+        height: 2%;
     }
 
     </style>
 
     <div class="col-header"></div>
     <div class="col-content"></div>
+    <div class="col-footer"></div>
 `;
 
 class Column extends BaseComponent {
