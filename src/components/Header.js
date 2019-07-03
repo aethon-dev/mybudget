@@ -2,8 +2,6 @@ import BaseComponent from "./BaseComponent.js";
 
 const template = `
     <style>
-    @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-
     :host {
         display: block;
         text-align: center;
@@ -33,10 +31,28 @@ const template = `
         position: relative;
         margin-right: -35px;
     }
+
+    .search-icon {
+        opacity: 0.6;
+        position: absolute;
+    }
+
+    .search-icon img {
+        position: relative;
+        top: 19px;
+        left: 15px;
+    }
     </style>
 
     <h1 class="header-title"></h1>
-    <i class="fas fa-search"></i>
+    <span class="search-icon">
+        <img 
+            src="static/images/search-icon.svg" 
+            alt="Search icon"
+            height="14px"
+            width="15px"
+            z-index="100" />
+    </span>
     <input class="search-bar" type="text" />
 `;
 
