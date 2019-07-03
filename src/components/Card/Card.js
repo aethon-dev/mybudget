@@ -1,6 +1,6 @@
 import BaseComponent from '../BaseComponent.js';
-import './UserDetails.js';
-import './DebtDetails.js';
+import './CardUserDetails.js';
+import './CardDebtDetails.js';
 
 const template = `
     <style>
