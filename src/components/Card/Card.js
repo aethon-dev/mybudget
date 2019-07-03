@@ -1,8 +1,8 @@
+import BaseComponent from '../BaseComponent.js';
 import './UserDetails.js';
 import './DebtDetails.js';
 
-const template = document.createElement('template');
-template.innerHTML = `
+const template = `
     <style>
     .container {
         max-height: 200px;
@@ -17,21 +17,15 @@ template.innerHTML = `
     <div class="container"></div>
 `;
 
-class Card extends HTMLElement {
+class Card extends BaseComponent {
     constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        super(template);
 
-        this.container = this._shadowRoot.querySelector('div');
-    }
-
-    connectedCallback() {
-        this.render();
+        this._containerEl = this._shadowRoot.querySelector('div');
     }
 
     render() {
-        this.container.innerHTML = '';
+        this._containerEl.innerHTML = '';
         if (this._type == 'users') {
             const cardDetail = document.createElement('mb-user-detail');
             cardDetail.setAttribute('img', this._data.picture);
@@ -41,7 +35,7 @@ class Card extends HTMLElement {
             cardDetail.setAttribute('address', this._data.address);
             cardDetail.setAttribute('category', this._data.category);
 
-            this.container.appendChild(cardDetail);
+            this._containerEl.appendChild(cardDetail);
         }
         else if (this._type == 'debts') {
             const cardDetail = document.createElement('mb-debt-details');
@@ -55,7 +49,7 @@ class Card extends HTMLElement {
                 cardDetail.escalateList = this.data.escalate.staff;
             }
 
-            this.container.appendChild(cardDetail);
+            this._containerEl.appendChild(cardDetail);
         }
 
     }

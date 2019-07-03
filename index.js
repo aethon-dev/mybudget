@@ -1,6 +1,6 @@
-import './MyBudgetApp.js';
+import './src/components/MyBudgetApp.js';
 
-const mountPoint = document.getElementById('app');
-const myBudgetApp = document.createElement('my-budget-app');
+const appMountPoint = document.getElementById('app');
+const myBudgetApp = document.createElement('mb-app');
 
-mountPoint.appendChild(myBudgetApp);
+appMountPoint.appendChild(myBudgetApp);

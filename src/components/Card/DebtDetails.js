@@ -1,5 +1,6 @@
-const template = document.createElement('template');
-template.innerHTML = `
+import BaseComponent from '../BaseComponent.js';
+
+const template = `
     <style>
         :host {
             display: flex;
@@ -72,41 +73,35 @@ template.innerHTML = `
     </div>
 `;
 
-class DebtDetails extends HTMLElement {
+class CardDebtDetails extends BaseComponent {
     constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        super(template);
 
-        this.descriptionEl = this._shadowRoot.querySelector('.description');
-        this.balanceEl = this._shadowRoot.querySelector('.balance');
-        this.paymentEl = this._shadowRoot.querySelector('.payment');
-        this.categoryEl = this._shadowRoot.querySelector('.category');
-        this.bankEl = this._shadowRoot.querySelector('.bank');
-        this.escalateEl = this._shadowRoot.querySelector('.escalate');
-        this.escalateListEl = this._shadowRoot.querySelector('ul');
-    }
-
-    connectedCallback() {
-        this.render();
+        this._descriptionEl = this._shadowRoot.querySelector('.description');
+        this._balanceEl = this._shadowRoot.querySelector('.balance');
+        this._paymentEl = this._shadowRoot.querySelector('.payment');
+        this._categoryEl = this._shadowRoot.querySelector('.category');
+        this._bankEl = this._shadowRoot.querySelector('.bank');
+        this._escalateEl = this._shadowRoot.querySelector('.escalate');
+        this._escalateListEl = this._shadowRoot.querySelector('ul');
     }
 
     render() {
-        this.descriptionEl.innerHTML = this._description;
-        this.balanceEl.innerHTML = this._balance;
-        this.paymentEl.innerHTML = this._payment;
-        this.categoryEl.innerHTML = this._category;
-        this.bankEl.innerHTML = this._bank;
+        this._descriptionEl.innerHTML = this._description;
+        this._balanceEl.innerHTML = this._balance;
+        this._paymentEl.innerHTML = this._payment;
+        this._categoryEl.innerHTML = this._category;
+        this._bankEl.innerHTML = this._bank;
 
-        if (this._escalateList && Array.isArray(this._escalateList)) {
+        if (this._escalateList) {
             this._escalateList.forEach(user => {
                 const liEl = document.createElement('li');
                 liEl.innerHTML = user;
-                this.escalateListEl.appendChild(liEl);
+                this._escalateListEl.appendChild(liEl);
             });
         }
         else {
-            this.escalateEl.classList.add('hidden');
+            this._escalateEl.classList.add('hidden');
         }
     }
 
@@ -115,7 +110,9 @@ class DebtDetails extends HTMLElement {
     }
 
     set escalateList(list) {
-        this._escalateList = list;
+        if (list && Array.isArray(list)) {
+            this._escalateList = list;
+        }
     }
 
     static get observedAttributes() {
@@ -145,7 +142,6 @@ class DebtDetails extends HTMLElement {
                 break;
         }
     }
-
 }
 
-window.customElements.define('mb-debt-details', DebtDetails);
+window.customElements.define('mb-debt-details', CardDebtDetails);

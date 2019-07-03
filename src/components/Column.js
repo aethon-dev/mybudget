@@ -1,8 +1,8 @@
+import BaseComponent from './BaseComponent.js';
 import './Header.js';
 import './Card/Card.js';
 
-const template = document.createElement('template');
-template.innerHTML = `
+const template = `
     <style>
     :host {
         width: 100%;
@@ -36,46 +36,40 @@ template.innerHTML = `
     <div class="col-content"></div>
 `;
 
-class Column extends HTMLElement {
+class Column extends BaseComponent {
     constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        super(template);
 
-        this.columnHeader = this._shadowRoot.querySelector('.col-header');
-        this.columnContent = this._shadowRoot.querySelector('.col-content');
+        this._columnHeaderEl = this._shadowRoot.querySelector('.col-header');
+        this._columnContentEl = this._shadowRoot.querySelector('.col-content');
 
-        this.columnHeader.addEventListener('onSearch', (event) => {
-            this.filterData(event.detail.searchTerm);
+        this._columnHeaderEl.addEventListener('onSearch', (event) => {
+            this._filterData(event.detail.searchTerm);
         });
     }
 
-    connectedCallback() {
-        this.render();
-    }
-
     render() {
-        const header = document.createElement('col-header');
+        const header = document.createElement('mb-col-header');
         header.setAttribute('title', this._title);
         header.setAttribute('type', this._type);
-        this.columnHeader.appendChild(header);
+        this._columnHeaderEl.appendChild(header);
 
-        this.renderContentArea();
+        this._renderContentArea();
     }
 
-    renderContentArea() {
-        this.columnContent.innerHTML = '';
+    _renderContentArea() {
+        this._columnContentEl.innerHTML = '';
         if (this._filteredData && Array.isArray(this._filteredData)) {
             this._filteredData.forEach((data, index) => {
                 const card = document.createElement('mb-card');
                 card.setAttribute('type', this._type);
                 card.data = data;
-                this.columnContent.appendChild(card);
+                this._columnContentEl.appendChild(card);
             });
         }
     }
 
-    filterData(searchTerm) {
+    _filterData(searchTerm) {
         console.log(searchTerm);
         const term = searchTerm.toLowerCase();
         if (term && term === "") {
@@ -87,13 +81,13 @@ class Column extends HTMLElement {
                 return searchKey.toLowerCase().includes(term);
             });
         }
-        this.renderContentArea();
+        this._renderContentArea();
     }
 
     set data(data) {
         this._data = data;
         this._filteredData = this._data;
-        this.renderContentArea();
+        this._renderContentArea();
     }
 
     get data() {
@@ -117,4 +111,4 @@ class Column extends HTMLElement {
     }
 }
 
-window.customElements.define('app-column', Column);
+window.customElements.define('mb-column', Column);

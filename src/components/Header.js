@@ -1,6 +1,6 @@
-const template = document.createElement('template');
+import BaseComponent from "./BaseComponent.js";
 
-template.innerHTML = `
+const template = `
     <style>
     @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
@@ -40,29 +40,23 @@ template.innerHTML = `
     <input class="search-bar" type="text" />
 `;
 
-class Header extends HTMLElement {
+class Header extends BaseComponent {
     constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        super(template);
 
-        this.titleEl = this._shadowRoot.querySelector('.header-title');
-        this.searchBarEl = this._shadowRoot.querySelector('.search-bar');
+        this._titleEl = this._shadowRoot.querySelector('.header-title');
+        this._searchBarEl = this._shadowRoot.querySelector('.search-bar');
 
-        this.searchBarEl.addEventListener('keyup', (event) => {
-            this.dispatchEvent(new CustomEvent('onSearch', { detail: { searchTerm: this.searchBarEl.value }, composed: true, bubbles: true }));
-            console.log(this.searchBarEl.value);
+        this._searchBarEl.addEventListener('keyup', (event) => {
+            this.dispatchEvent(new CustomEvent('onSearch', { detail: { searchTerm: this._searchBarEl.value }, composed: true, bubbles: true }));
+            console.log(this._searchBarEl.value);
         });
-    }
-
-    connectedCallback() {
-        this.render();
     }
 
     render() {
         const placeholder = this._type && this._type === "users" ? 'Search by user name' : 'Search by debt description';
-        this.searchBarEl.setAttribute('placeholder', placeholder);
-        this.titleEl.innerHTML = this._title;
+        this._searchBarEl.setAttribute('placeholder', placeholder);
+        this._titleEl.innerHTML = this._title;
     }
 
     static get observedAttributes() {
@@ -82,4 +76,4 @@ class Header extends HTMLElement {
     }
 }
 
-window.customElements.define('col-header', Header);
+window.customElements.define('mb-col-header', Header);

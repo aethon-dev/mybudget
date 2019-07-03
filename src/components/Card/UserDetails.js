@@ -1,5 +1,6 @@
-const template = document.createElement('template');
-template.innerHTML = `
+import BaseComponent from '../BaseComponent.js';
+
+const template = `
     <style>
         :host {
             display: flex;
@@ -45,32 +46,26 @@ template.innerHTML = `
     </div>
 `;
 
-class UserDetails extends HTMLElement {
+class CardUserDetails extends BaseComponent {
     constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        super(template);
 
-        this.imgEl = this._shadowRoot.querySelector('img');
-        this.nameEl = this._shadowRoot.querySelector('.name');
-        this.ageEl = this._shadowRoot.querySelector('.age');
-        this.phoneEl = this._shadowRoot.querySelector('.phone');
-        this.addressEl = this._shadowRoot.querySelector('.address');
-        this.categoryEl = this._shadowRoot.querySelector('.category');
-    }
-
-    connectedCallback() {
-        this.render();
+        this._imgEl = this._shadowRoot.querySelector('img');
+        this._nameEl = this._shadowRoot.querySelector('.name');
+        this._ageEl = this._shadowRoot.querySelector('.age');
+        this._phoneEl = this._shadowRoot.querySelector('.phone');
+        this._addressEl = this._shadowRoot.querySelector('.address');
+        this._categoryEl = this._shadowRoot.querySelector('.category');
     }
 
     render() {
-        this.imgEl.src = this._img;
-        this.imgEl.alt = this._name;
-        this.nameEl.innerHTML = this._name;
-        this.ageEl.innerHTML = this._age;
-        this.phoneEl.innerHTML = this._phone;
-        this.addressEl.innerHTML = this._address;
-        this.categoryEl.innerHTML = this._category;
+        this._imgEl.src = this._img;
+        this._imgEl.alt = this._name;
+        this._nameEl.innerHTML = this._name;
+        this._ageEl.innerHTML = this._age;
+        this._phoneEl.innerHTML = this._phone;
+        this._addressEl.innerHTML = this._address;
+        this._categoryEl.innerHTML = this._category;
     }
 
     static get observedAttributes() {
@@ -106,4 +101,4 @@ class UserDetails extends HTMLElement {
     }
 }
 
-window.customElements.define('mb-user-detail', UserDetails);
+window.customElements.define('mb-user-detail', CardUserDetails);
