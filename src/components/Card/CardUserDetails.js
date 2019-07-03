@@ -1,4 +1,5 @@
 import BaseComponent from '../BaseComponent.js';
+import constants from '../../constants.js';
 
 const template = `
     <style>
@@ -32,6 +33,10 @@ const template = `
         .key {
             font-weight: bold;
         }
+
+        .value {
+            color: ${constants.colors.textNormal};
+        }
     </style>
 
     <div class="picture">
@@ -39,10 +44,10 @@ const template = `
     </div>
     <div class="details">
         <h2 class="name"></h2>
-        <span class="key">Age: </span><span class="age"></span></br>
-        <span class="key">Phone: </span><span class="phone"></span></br>
-        <span class="key">Address: </span><span class="address"></span></br>
-        <span class="key">Category: </span><span class="category"></span></br>
+        <span class="key">Age: </span><span class="value age"></span></br>
+        <span class="key">Phone: </span><span class="value phone"></span></br>
+        <span class="key">Address: </span><span class="value address"></span></br>
+        <span class="key">Category: </span><span class="value category"></span></br>
     </div>
 `;
 

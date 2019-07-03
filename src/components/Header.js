@@ -24,14 +24,6 @@ const template = `
         box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
     }
 
-    i {
-        font-family: "FontAwesome";
-        font-style: normal;
-        color: #707070;
-        position: relative;
-        margin-right: -35px;
-    }
-
     .search-icon {
         opacity: 0.6;
         position: absolute;

@@ -1,4 +1,5 @@
 import BaseComponent from '../BaseComponent.js';
+import constants from '../../constants.js';
 
 const template = `
     <style>
@@ -29,17 +30,16 @@ const template = `
 
         .key {
             font-weight: bold;
-            color: #2f364d;
         }
 
         .value {
-
+            color: ${constants.colors.textNormal};
         }
 
         .escalate button {
             margin-bottom: 10%;
             width: 100%;
-            background-color: #db483d;
+            background-color: ${constants.colors.risk};
             border: none;
             border-radius: 4px;
             color: white;
